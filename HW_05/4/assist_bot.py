@@ -3,11 +3,11 @@ def input_error(func):
         try:
             return func(*args, **kwargs)
         except ValueError:
-            return "Give me name and phone please."
+            return "Give me name and phone please"
         except KeyError:
-            return "Contact not found."
+            return "Contact not found"
         except IndexError:
-            return "Invalid input. Please provide the correct number of arguments."
+            return "Invalid input. Please provide the correct contact data"
 
     return inner
 
@@ -18,13 +18,13 @@ def parse_input(user_input):
     return cmd, *args
 
 
-@input_error  # Decorator input_error
+@input_error  # Decorator added
 def add_contact(args, contacts):
     if len(args) != 2:
         raise ValueError
     name, phone = args
     contacts[name] = phone
-    return "Contact added."
+    return "Contact added"
 
 
 @input_error
@@ -34,7 +34,7 @@ def change_contact(args, contacts):
     name, new_phone = args
     if name in contacts:
         contacts[name] = new_phone
-        return "Contact updated."
+        return "Contact updated"
     raise KeyError
 
 
@@ -43,11 +43,11 @@ def show_phone(args, contacts):
     if len(args) != 1:
         raise ValueError
     name = args[0]
-    return contacts.get(name, "Contact not found.")
+    return contacts.get(name, "Sorry, contact not found")
 
 
 @input_error
 def show_all(contacts):
     if not contacts:
-        return "No contacts available."
+        return "Sorry, no contacts found"
     return "\n".join(f"{name}: {phone}" for name, phone in contacts.items())

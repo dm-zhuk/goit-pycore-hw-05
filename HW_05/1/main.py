@@ -1,8 +1,8 @@
 def caching_fibonacci():
 
-    cache = {}  # Dictionary to store cached Fibonacci values
+    cache = {}  # Dict to store cached Fibonacci values
 
-    def fibonacci(n):
+    def fib(n):
         if n in cache:
             return cache[n]
         if n <= 0:
@@ -10,17 +10,17 @@ def caching_fibonacci():
         elif n == 1:
             return 1
 
-        result = fibonacci(n - 1) + fibonacci(n - 2)  # Recursive calc
+        res = fib(n - 1) + fib(n - 2)  # Recursive calc
 
-        cache[n] = result
-        return result
+        cache[n] = res
+        return res
 
-    return fibonacci
+    return fib
 
 
 if __name__ == "__main__":
-    fibonacci = caching_fibonacci()
+    fib = caching_fibonacci()
 
-    print(fibonacci(10))
-    print(fibonacci(15))
-    print(fibonacci(25))
+    print(f'Output of 3 is {fib(3)}')   # 2
+    print(f'Output of 15 is {fib(15)}')  # 610
+    print(f'Output of 25 is {fib(25)}')  # 75025

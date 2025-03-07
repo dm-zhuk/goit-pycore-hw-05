@@ -1,8 +1,8 @@
+# main.py
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 from assist_bot import parse_input, add_contact, change_contact, show_phone, show_all
-
 
 def main():
     contacts = {}
@@ -25,8 +25,7 @@ def main():
         elif command == "all":
             print(show_all(contacts))
         else:
-            print("Invalid command.")
-
+            print("Sorry, invalid command")
 
 if __name__ == "__main__":
     main()
