@@ -52,7 +52,7 @@ def display_log_counts(counts: dict):
 def main():
     if len(sys.argv) < 2:
         print(
-            "Використання: python log_analyzer.py <шлях до файлу логів> [<рівень логування>] e.g [INFO-WARNING-ERROR-DEBUG]"
+            "Використання: python3 log_analyzer.py logfile.log INFO e.g [INFO-WARNING-ERROR-DEBUG]"
         )
         return
 
